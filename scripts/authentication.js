@@ -10,19 +10,14 @@ import {
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-const currentUrl = window.location.href
+const currentPageName = window.location.pathname.split("/").pop();
 
 // this is the function to sign in with google
 
 export const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // IdP data available using getAdditionalUserInfo(result)
-            // ...
+            console.log(result)
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -40,13 +35,13 @@ export const createUser = (email, password) => {
             // if user is created we redirect them to the login page
 
             if(user){
-                window.location.href = currentUrl + "login.html"
+                window.location.href = 'login.html'
             }
 
             // if !user this means that user is already registered in that case we consider it as a login
         
             if(!user){
-                window.location.href = currentUrl + "index.html"
+                window.location.href = "index.html"
             }
         })
         .catch((error) => {
