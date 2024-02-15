@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Document</title>
 </head>
-<body class="bg-slate-50 h-lvh">
-    <nav >
-        <div class="flex justify-around items-center pt-2 pb-3">
-            <h1 class="font-bold text-slate-950 text-xl">AskHub Blogs</h1>
-            <input class="input input-bordered w-full max-w-xs bg-slate-200 text-black" type="text" max="20" placeholder="Search Blog Or Post">
+
+<body class="bg-slate-50 h-lvh px-24">
+    <nav class="mb-10">
+        <div class="flex justify-between items-center pt-2 pb-3">
+            <h1 class="font-bold text-slate-950 text-xl"><a href="/">AskHub Blogs</a></h1>
+            <input class="input input-bordered w-full max-w-xs bg-slate-200 text-black" type="text" max="20"
+                placeholder="Search Blog Or Post">
             <div>
-                <button class="btn btn-outline btn-primary">Create</button>
-                <button class="btn btn-outline btn-error">Logout</button>
+                <a href="create.html"><button class="btn btn-outline btn-primary">Create</button></a>
+                <a href="login.html"><button class="btn btn-outline btn-error">Logout</button></a>
             </div>
         </div>
         <hr class="h-px bg-gray-200 border-0 dark:bg-gray-400">
     </nav>
-    <main></main>
+    <main class="flex justify-center ">
+        <!-- blog -->
+        <div class="w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg">
+            <div class="content w-[70%] flex justify-between flex-col">
+                <h1 class="font-semibold text-lg">React vs Javascript What's the Difference</h1>
+                <p class="text-justify text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+                    consectetur
+                    error nostrum vitae
+                    quibusdam pariatur quas qui similique, rerum maxime, ipsum officia quasi, tenetur ipsa consequuntur!
+                    Ratione nisi exercitationem esse.</p>
+                <div class="flex justify-between items-center">
+                    <p><i class="ri-user-fill mr-2"></i>Umar Haqqui</p>
+                    <p>11/2/2024</p>
+                </div>
+            </div>
+            <div class="image w-[30%] h-full bg-white rounded-lg"></div>
+        </div>
+
+    </main>
 </body>
+
 </html>
