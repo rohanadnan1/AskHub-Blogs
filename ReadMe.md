@@ -24,7 +24,7 @@ Step Four is to run the following command in terminal
 npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 
 Step Five is to Link output.css to your html file 
-<!doctype html>
+ <!-- <!doctype html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -36,6 +36,6 @@ Step Five is to Link output.css to your html file
     Hello world!
   </h1>
 </body>
-</html>
+</html> -->
 
 You Are Good to Go!
