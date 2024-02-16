@@ -805,6 +805,15 @@ html {
   content: var(--tw-content);
 }
 
+.chat {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 @media (hover: hover) {
   .btn:hover {
     --tw-border-opacity: 1;
@@ -1018,10 +1027,6 @@ html {
     --btn-color: var(--fallback-a);
   }
 
-  .btn-info {
-    --btn-color: var(--fallback-in);
-  }
-
   .btn-error {
     --btn-color: var(--fallback-er);
   }
@@ -1085,10 +1090,6 @@ html {
     --btn-color: var(--a);
   }
 
-  .btn-info {
-    --btn-color: var(--in);
-  }
-
   .btn-error {
     --btn-color: var(--er);
   }
@@ -1098,12 +1099,6 @@ html {
   --tw-text-opacity: 1;
   color: var(--fallback-ac,oklch(var(--ac)/var(--tw-text-opacity)));
   outline-color: var(--fallback-a,oklch(var(--a)/1));
-}
-
-.btn-info {
-  --tw-text-opacity: 1;
-  color: var(--fallback-inc,oklch(var(--inc)/var(--tw-text-opacity)));
-  outline-color: var(--fallback-in,oklch(var(--in)/1));
 }
 
 .btn-error {
@@ -1534,8 +1529,16 @@ html {
   width: 33.333333%;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-2\/3 {
   width: 66.666667%;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-96 {
@@ -1552,18 +1555,6 @@ html {
 
 .w-full {
   width: 100%;
-}
-
-.w-12 {
-  width: 3rem;
-}
-
-.w-24 {
-  width: 6rem;
-}
-
-.w-32 {
-  width: 8rem;
 }
 
 .max-w-xs {
@@ -1590,8 +1581,16 @@ html {
   gap: 0.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-8 {
   gap: 2rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .rounded-lg {

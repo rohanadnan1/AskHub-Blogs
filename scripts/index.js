@@ -4,7 +4,7 @@ import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth } fro
 
 // this onLoadAuth function will be called when the page loads
 
-onLoadAuth()
+// onLoadAuth()
 
 // Login Page Scripts
 
@@ -13,6 +13,8 @@ const googleBTN = document.getElementById('google-login')
 const loginEMAIL = document.getElementById('login-email')
 const loginPASSWORD = document.getElementById('login-password')
 const loginBTN = document.getElementById('login-btn')
+const profilePIC = document.getElementById('profile-pic')
+
 
 googleBTN && googleBTN.addEventListener('click', (e) => {
     e.preventDefault()
@@ -57,7 +59,18 @@ homeSignOutBTN && homeSignOutBTN.addEventListener('click', (e) => {
 // Create Post Page Scripts
 
 const createSignOutBTN = document.getElementById('create-logout-btn')
+const cancelBTN = document.getElementById('cancel')
+const title = document.getElementById('title')
+const description = document.getElementById('description')
+
 createSignOutBTN && createSignOutBTN.addEventListener('click', (e) => {
     e.preventDefault()
     signOutUser()
+})
+
+cancelBTN && cancelBTN.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.location.href = "index.html"
+    title.value = ""
+    description.value = ""
 })

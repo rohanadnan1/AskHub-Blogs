@@ -17,11 +17,15 @@ const currentPageName = window.location.pathname.split("/").pop();
 export const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
-            console.log(result)
+            if (result) {
+                console.log('Result is defined');
+                console.log(result, "result")
+                window.location.href = "index.html"
+            } else {
+                console.log('Result is undefined or empty');
+            }
         }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log(error)
         });
 }
 
@@ -88,9 +92,9 @@ export const onLoadAuth = () => {
 // this function is called when the user clicks on the sign out button
 
 export const signOutUser = () => {
-    signOut()
+    signOut(auth)
         .then(() => {
-            window.location.href = current + "login.html"
+            window.location.href = "login.html"
         })
         .catch((error) => {
             console.log(error)
