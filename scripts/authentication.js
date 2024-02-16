@@ -11,22 +11,23 @@ import {
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const currentPageName = window.location.pathname.split("/").pop();
+const img = document.getElementById('profileImg')
 
 // this is the function to sign in with google
 
-export const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            if (result) {
-                console.log('Result is defined');
-                console.log(result, "result")
-                window.location.href = "index.html"
-            } else {
-                console.log('Result is undefined or empty');
-            }
-        }).catch((error) => {
-            console.log(error)
-        });
+export const signInWithGoogle = async () => {
+    try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        console.log(user.photoURL)
+
+        // image is showing null in the console but it is showing the image in the console.log(user) so i am not sure why it is not showing the image in the console.log(img)
+        
+        console.log(img)
+
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 // this is the function to create a new user
