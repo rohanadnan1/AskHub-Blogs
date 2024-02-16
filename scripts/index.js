@@ -1,15 +1,27 @@
 // importing functions
 import { createUser } from "./authentication.js"
 import { signInWithGoogle } from "./authentication.js"
-
+import { signInUser } from './authentication.js'
+import { signOutUser } from './authentication.js'
 
 // Login Page Scripts
 
 
 const googleBTN = document.getElementById('google-login')
+const loginEMAIL = document.getElementById('login-email')
+const loginPASSWORD = document.getElementById('login-password')
+const loginBTN = document.getElementById('login-btn')
+
 googleBTN && googleBTN.addEventListener('click', (e) => {
     e.preventDefault()
     signInWithGoogle()
+})
+
+loginBTN && loginBTN.addEventListener('click', (e)=>{
+    e.preventDefault()
+    if(loginEMAIL.value && loginPASSWORD.value){
+        signInUser(loginEMAIL.value, loginPASSWORD.value)
+    }
 })
 
 
@@ -33,5 +45,17 @@ registerBTN && registerBTN.addEventListener('click', (e) => {
 
 // Home Page Scripts
 
+const homeSignOutBTN = document.getElementById('home-logout-btn')
+homeSignOutBTN && homeSignOutBTN.addEventListener('click', (e) => {
+    e.preventDefault()
+    signOutUser()
+})
+
 
 // Create Post Page Scripts
+
+const createSignOutBTN = document.getElementById('create-logout-btn')
+createSignOutBTN && createSignOutBTN.addEventListener('click', (e) => {
+    e.preventDefault()
+    signOutUser()
+})

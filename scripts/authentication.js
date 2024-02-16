@@ -34,13 +34,13 @@ export const createUser = (email, password) => {
 
             // if user is created we redirect them to the login page
 
-            if(user){
+            if (user) {
                 window.location.href = 'login.html'
             }
 
             // if !user this means that user is already registered in that case we consider it as a login
-        
-            if(!user){
+
+            if (!user) {
                 window.location.href = "index.html"
             }
         })
@@ -52,20 +52,22 @@ export const createUser = (email, password) => {
 // this is the function to sign in a user
 
 export const signInUser = (email, password) => {
+
+    // email and password value will be passed in the index.js file
+
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            if(user){
-                window.location.href = currentUrl + "index.html"
+            if (user) {
+                window.location.href = "index.html"
             }
 
-            if(!user){
-                window.location.href = currentUrl + "register.html"
+            if (!user) {
+                window.location.href = "register.html"
             }
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+           console.log(error)
         });
 }
 
@@ -76,7 +78,7 @@ export const onLoadAuth = () => {
         if (user) {
             console.log(user)
         } else {
-            
+
             // here if the user if not logged in we redirect them to the login page
             window.location.href = currentUrl + "login.html"
         }
@@ -87,10 +89,10 @@ export const onLoadAuth = () => {
 
 export const signOutUser = () => {
     signOut()
-        .then(()=>{
+        .then(() => {
             window.location.href = current + "login.html"
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error)
         });
 }
