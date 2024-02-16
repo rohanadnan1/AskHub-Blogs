@@ -67,7 +67,7 @@ export const signInUser = (email, password) => {
             }
         })
         .catch((error) => {
-           console.log(error)
+            console.log(error)
         });
 }
 
@@ -76,11 +76,11 @@ export const signInUser = (email, password) => {
 export const onLoadAuth = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            console.log(user)
+            window.location.href = 'index.html'
         } else {
 
             // here if the user if not logged in we redirect them to the login page
-            window.location.href = currentUrl + "login.html"
+            window.location.href = "login.html"
         }
     });
 }

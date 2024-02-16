@@ -1,8 +1,10 @@
 // importing functions
-import { createUser } from "./authentication.js"
-import { signInWithGoogle } from "./authentication.js"
-import { signInUser } from './authentication.js'
-import { signOutUser } from './authentication.js'
+import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth } from "./authentication.js"
+
+
+// this onLoadAuth function will be called when the page loads
+
+onLoadAuth()
 
 // Login Page Scripts
 
