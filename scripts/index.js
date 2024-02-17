@@ -1,8 +1,25 @@
 // importing functions
 import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth } from "./authentication.js"
 
-document.addEventListener('DOMContentLoaded', (e) => {
 
+// document.addEventListener('DOMContentLoaded', function () {
+//     console.log('fdf', document.readyState)
+//     document.addEventListener('readystatechange', function () {
+//         console.log('dzcfsffbs', document.readyState)
+//     })
+// })
+
+
+
+// if(document.readyState === 'loading' || document.readyState === 'interactive') {
+//     console.log('loading')
+//     document.addEventListener('DOMContentLoaded', function (e) {
+//         e.preventDefault()
+//         initializeApp()
+//     })
+// }
+
+function initializeApp() {
     // this onLoadAuth function will be called when the page loads
 
     // onLoadAuth()
@@ -14,13 +31,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const loginEMAIL = document.getElementById('login-email')
     const loginPASSWORD = document.getElementById('login-password')
     const loginBTN = document.getElementById('login-btn')
-
-
-
+    const img = document.getElementById('img')
+    
     googleBTN && googleBTN.addEventListener('click', (e) => {
         e.preventDefault()
         console.log('clicked')
-        signInWithGoogle()
+        signInWithGoogle(img)
     })
 
     loginBTN && loginBTN.addEventListener('click', (e) => {
@@ -76,4 +92,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
         title.value = ""
         description.value = ""
     })
-})
+
+}
+
+initializeApp()
+
+

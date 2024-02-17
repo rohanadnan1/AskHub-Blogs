@@ -11,19 +11,18 @@ import {
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const currentPageName = window.location.pathname.split("/").pop();
-const img = document.getElementById('profileImg')
 
 // this is the function to sign in with google
 
-export const signInWithGoogle = async () => {
+export const signInWithGoogle = async (img) => {
     try {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
         console.log(user.photoURL)
-
-        // image is showing null in the console but it is showing the image in the console.log(user) so i am not sure why it is not showing the image in the console.log(img)
-        
-        console.log(img)
+        img?.src = user.photoURL
+        if (currentPageName === "login.html") {
+            window.location.href = "index.html"
+        }
 
     } catch (error) {
         console.log(error)
