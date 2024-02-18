@@ -1,5 +1,6 @@
 // importing functions
 import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth } from "./authentication.js"
+import { createBlog } from "./database.js"
 
 
 // document.addEventListener('DOMContentLoaded', function () {
@@ -32,7 +33,7 @@ function initializeApp() {
     const loginPASSWORD = document.getElementById('login-password')
     const loginBTN = document.getElementById('login-btn')
     const img = document.getElementById('img')
-    
+
     googleBTN && googleBTN.addEventListener('click', (e) => {
         e.preventDefault()
         signInWithGoogle()
@@ -80,6 +81,7 @@ function initializeApp() {
     const cancelBTN = document.getElementById('cancel')
     const title = document.getElementById('title')
     const description = document.getElementById('description')
+    const saveBTN = document.getElementById('save')
 
     createSignOutBTN && createSignOutBTN.addEventListener('click', (e) => {
         e.preventDefault()
@@ -91,6 +93,16 @@ function initializeApp() {
         window.location.href = "index.html"
         title.value = ""
         description.value = ""
+    })
+
+    saveBTN && saveBTN.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (title.value && description.value) {
+            createBlog(Date.now(), title.value, description.value)
+            title.value = ""
+            description.value = ""
+            window.location.href = "index.html"
+        }
     })
 
 }
