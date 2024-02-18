@@ -14,12 +14,10 @@ const currentPageName = window.location.pathname.split("/").pop();
 
 // this is the function to sign in with google
 
-export const signInWithGoogle = async (img) => {
+export const signInWithGoogle = async () => {
     try {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
-        console.log(user.photoURL)
-        img?.src = user.photoURL
         if (currentPageName === "login.html") {
             window.location.href = "index.html"
         }
@@ -80,11 +78,15 @@ export const signInUser = (email, password) => {
 export const onLoadAuth = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            window.location.href = 'index.html'
+            // If the user is authenticated and on the login page, redirect them to the index page
+            if (currentPageName === "login.html") {
+                window.location.href = 'index.html';
+            }
         } else {
-
-            // here if the user if not logged in we redirect them to the login page
-            window.location.href = "login.html"
+            // If the user is not authenticated and not already on the login page, redirect them to the login page
+            if (currentPageName !== "login.html") {
+                window.location.href = "login.html";
+            }
         }
     });
 }

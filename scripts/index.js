@@ -22,7 +22,7 @@ import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth } fro
 function initializeApp() {
     // this onLoadAuth function will be called when the page loads
 
-    // onLoadAuth()
+    onLoadAuth()
 
     // Login Page Scripts
 
@@ -35,9 +35,9 @@ function initializeApp() {
     
     googleBTN && googleBTN.addEventListener('click', (e) => {
         e.preventDefault()
-        console.log('clicked')
-        signInWithGoogle(img)
+        signInWithGoogle()
     })
+
 
     loginBTN && loginBTN.addEventListener('click', (e) => {
         e.preventDefault()
