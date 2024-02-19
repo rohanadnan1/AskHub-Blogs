@@ -74,11 +74,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const homeSignOutBTN = document.getElementById('home-logout-btn')
     const blogContainer = document.getElementById('blog-container')
-    const blogTitle = document.getElementById('blog-title')
-    const blogDescription = document.getElementById('blog-description')
-    const blogOwner = document.getElementById('post-owner')
-    const blogDate = document.getElementById('date')
-
 
     let postArr = []
 
