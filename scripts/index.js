@@ -5,29 +5,13 @@ import { onValue, } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-dat
 
 
 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     console.log('fdf', document.readyState)
-//     document.addEventListener('readystatechange', function () {
-//         console.log('dzcfsffbs', document.readyState)
-//     })
-// })
-
-
-
-// if(document.readyState === 'loading' || document.readyState === 'interactive') {
-//     console.log('loading')
-//     document.addEventListener('DOMContentLoaded', function (e) {
-//         e.preventDefault()
-//         initializeApp()
-//     })
-// }
-
-
-// this onLoadAuth function will be called when the page loads
-// this is an immediately invoked function we are using async await to wait for the user to be loaded
-
 document.addEventListener('DOMContentLoaded', async function () {
+
+
+    // this onLoadAuth function will be called when the page loads
+    // this is an immediately invoked function we are using async await to wait for the user to be loaded
+
+
     (async () => {
         await onLoadAuth();
     })();
@@ -144,9 +128,5 @@ document.addEventListener('DOMContentLoaded', async function () {
             window.location.href = "index.html"
         }
     })
-
-
-
-
 
 })
