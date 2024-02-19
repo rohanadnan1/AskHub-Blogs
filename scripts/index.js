@@ -25,6 +25,7 @@ import { createBlog } from "./database.js"
 
 
 // this onLoadAuth function will be called when the page loads
+// this is an immediately invoked function we are using async await to wait for the user to be loaded
 
 (async () => {
     await onLoadAuth();
@@ -37,7 +38,7 @@ const googleBTN = document.getElementById('google-login')
 const loginEMAIL = document.getElementById('login-email')
 const loginPASSWORD = document.getElementById('login-password')
 const loginBTN = document.getElementById('login-btn')
-const img = document.getElementById('img')
+
 
 googleBTN && googleBTN.addEventListener('click', (e) => {
     e.preventDefault()
@@ -107,6 +108,8 @@ cancelBTN && cancelBTN.addEventListener('click', (e) => {
     title.value = ""
     description.value = ""
 })
+
+
 
 saveBTN && saveBTN.addEventListener('click', async (e) => {
     e.preventDefault()

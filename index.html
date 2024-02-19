@@ -82,6 +82,14 @@
       </div>
     </main>
 
+    <script type="module">
+      import { userObj, onLoadAuth } from "./scripts/authentication.js";
+      const img = document.getElementById("img");
+      (async () => {
+        await onLoadAuth();
+        img.src = userObj.photoURL;
+      })();
+    </script>
     <script type="module" src="./scripts/index.js"></script>
     <script type="module" src="./scripts/authentication.js"></script>
   </body>

@@ -10,8 +10,5 @@ export const createBlog = (id, title, description, username) => {
         description,
         username
     })
-    .then(() => {
-        console.log('Blog created successfully')
-    })
 }
 
