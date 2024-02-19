@@ -7,6 +7,7 @@ import {
     signOut,
     createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+import { getBlogs } from "./database.js";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -78,10 +79,10 @@ export const onLoadAuth = () => {
     return new Promise((resolve, reject) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log('user', user)
                 userObj = user
                 if (currentPageName === "login.html") {
                     window.location.href = 'index.html';
+                    getBlogs()
                 }
                 resolve(user);
             } else {

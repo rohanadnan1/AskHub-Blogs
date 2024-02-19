@@ -11,18 +11,7 @@
     <title>Blog App - Home</title>
   </head>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/output.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-  </head>
-
-  <body class="bg-slate-50 h-lvh px-24">
+  <body class="bg-slate-50 min-h-lvh max-h-fit px-24">
     <nav class="mb-10">
       <div class="flex justify-between items-center pt-2 pb-3">
         <h1 class="font-bold text-slate-950 text-xl">
@@ -59,8 +48,11 @@
     </nav>
     <main class="flex justify-center">
       <!-- blog -->
-      <div
-        id="blog-container"
+      <div id="blog-container" class="flex items-center justify-between flex-col gap-4">
+
+        <!-- Todo: when i am commenting this div all the blogs that are coming from database their width is shrinking fix it -->
+
+         <div
         class="w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg"
       >
         <div class="content w-[70%] flex justify-between flex-col">
@@ -79,6 +71,7 @@
           </div>
         </div>
         <div class="image w-[30%] h-full bg-white rounded-lg"></div>
+      </div> 
       </div>
     </main>
 
