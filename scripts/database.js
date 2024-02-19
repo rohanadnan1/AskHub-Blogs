@@ -4,12 +4,13 @@ const database = getDatabase(app);
 export const blogsInDb = ref(database, 'blogs');
 export let postArr = []
 
-export const createBlog = (id, title, description, username) => {
+export const createBlog = (id, title, description, username, createdAt) => {
     push(blogsInDb, {
         id,
         title,
         description,
-        username
+        username,
+        createdAt
     })
 }
 

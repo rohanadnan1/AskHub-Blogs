@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async function () {
               </p>
               <div class="flex justify-between items-center">
                 <p id="post-owner"><i class="ri-user-fill mr-2"></i>${post.username}</p>
-                <p id="date">11/2/2024</p>
+                <p id="date">${post.createdAt}</p>
               </div>
             </div>
             <div class="image w-[30%] h-full bg-white rounded-lg"></div>
@@ -121,6 +121,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     const title = document.getElementById('title')
     const description = document.getElementById('description')
     const saveBTN = document.getElementById('save')
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = date.getMonth()
+    const day = date.getDate()
 
     createSignOutBTN && createSignOutBTN.addEventListener('click', (e) => {
         e.preventDefault()
@@ -139,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     saveBTN && saveBTN.addEventListener('click', async (e) => {
         e.preventDefault()
         if (title.value && description.value) {
-            createBlog(Date.now(), title.value, description.value, userObj.displayName)
+            createBlog(Date.now(), title.value, description.value, userObj.displayName, `${day}/${month + 1}/${year}`)
             title.value = ""
             description.value = ""
             window.location.href = "index.html"
