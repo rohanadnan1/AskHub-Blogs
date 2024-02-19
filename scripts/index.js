@@ -3,6 +3,9 @@ import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth } fro
 import { createBlog } from "./database.js"
 
 
+
+
+
 // document.addEventListener('DOMContentLoaded', function () {
 //     console.log('fdf', document.readyState)
 //     document.addEventListener('readystatechange', function () {

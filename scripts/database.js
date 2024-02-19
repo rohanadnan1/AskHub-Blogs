@@ -1,14 +1,16 @@
 import { app } from "./firebase.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
 const database = getDatabase(app);
+const blogsInDb = ref(database, 'blogs');
 
 export const createBlog = (id, title, description) => {
-    set(ref(database, 'post/' + id), {
+    push(blogsInDb, {
+        id,
         title,
         description
     })
-    .catch((error) => {
-        console.log(error)
-    });
+    .then(() => {
+        console.log('Blog created successfully')
+    })
 }
 
