@@ -3,11 +3,12 @@ import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.
 const database = getDatabase(app);
 const blogsInDb = ref(database, 'blogs');
 
-export const createBlog = (id, title, description) => {
+export const createBlog = (id, title, description, username) => {
     push(blogsInDb, {
         id,
         title,
-        description
+        description,
+        username
     })
     .then(() => {
         console.log('Blog created successfully')

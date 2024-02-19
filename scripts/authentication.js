@@ -11,13 +11,12 @@ import {
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const currentPageName = window.location.pathname.split("/").pop();
-
+export let userObj = {}
 // this is the function to sign in with google
 
 export const signInWithGoogle = async () => {
     try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
+        await signInWithPopup(auth, provider);
         if (currentPageName === "login.html") {
             window.location.href = "index.html"
         }
@@ -76,18 +75,22 @@ export const signInUser = (email, password) => {
 // this function will be called when the page loads to check if the user is logged in or not if not we redirect them to the login page else we let them stay on the page
 
 export const onLoadAuth = () => {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // If the user is authenticated and on the login page, redirect them to the index page
-            if (currentPageName === "login.html") {
-                window.location.href = 'index.html';
+    return new Promise((resolve, reject) => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('user', user)
+                userObj = user
+                if (currentPageName === "login.html") {
+                    window.location.href = 'index.html';
+                }
+                resolve(user);
+            } else {
+                if (currentPageName !== "login.html") {
+                    window.location.href = "login.html";
+                }
+                resolve(null);
             }
-        } else {
-            // If the user is not authenticated and not already on the login page, redirect them to the login page
-            if (currentPageName !== "login.html") {
-                window.location.href = "login.html";
-            }
-        }
+        }, reject);
     });
 }
 
