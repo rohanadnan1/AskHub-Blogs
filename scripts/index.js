@@ -58,33 +58,67 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const homeSignOutBTN = document.getElementById('home-logout-btn')
     const blogContainer = document.getElementById('blog-container')
-
+    const searchBlogs = document.getElementById('search')
     let postArr = []
+
+    // if (searchBlogs.innerText !== "") {
+    //     searchBlogs.addEventListener('input', (e) => {
+    //         onValue(blogsInDb, (snapshot) => {
+    //             postArr = Object.values(snapshot.val())
+    //             console.log(postArr)
+    //             let filteredPost = postArr.filter((post) => post.title.includes(e.target.value) || post.description.includes(e.target.value) || post.username.includes(e.target.value))
+    //             filteredPost.map((post) => (
+    //                 blogContainer.innerHTML += `
+    //             <div
+    //             class="w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg"
+    //           >
+    //             <div class="content w-[70%] flex justify-between flex-col">
+    //               <h1 id="post-title" class="font-semibold text-lg">
+    //                 ${post.title}
+    //               </h1>
+    //               <p id="post-description" class="text-justify text-sm">
+    //                 ${post.description}
+    //               </p>
+    //               <div class="flex justify-between items-center">
+    //                 <p id="post-owner"><i class="ri-user-fill mr-2"></i>${post.username}</p>
+    //                 <p id="date">${post.createdAt}</p>
+    //               </div>
+    //             </div>
+    //             <div class="image w-[30%] h-full bg-white rounded-lg"></div>
+    //           </div>
+    //             `
+    //             ))
+    //         })
+    //     })
+    // }
 
     onValue(blogsInDb, (snapshot) => {
         postArr = Object.values(snapshot.val())
+        console.log(postArr)
         postArr.map((post) => (
             blogContainer.innerHTML += `
-            <div
-            class="w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg"
-          >
-            <div class="content w-[70%] flex justify-between flex-col">
-              <h1 id="post-title" class="font-semibold text-lg">
-                ${post.title}
-              </h1>
-              <p id="post-description" class="text-justify text-sm">
-                ${post.description}
-              </p>
-              <div class="flex justify-between items-center">
-                <p id="post-owner"><i class="ri-user-fill mr-2"></i>${post.username}</p>
-                <p id="date">${post.createdAt}</p>
-              </div>
-            </div>
-            <div class="image w-[30%] h-full bg-white rounded-lg"></div>
+        <div
+        class="w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg"
+      >
+        <div class="content w-[70%] flex justify-between flex-col">
+          <h1 id="post-title" class="font-semibold text-lg">
+            ${post.title}
+          </h1>
+          <p id="post-description" class="text-justify text-sm">
+            ${post.description}
+          </p>
+          <div class="flex justify-between items-center">
+            <p id="post-owner"><i class="ri-user-fill mr-2"></i>${post.username}</p>
+            <p id="date">${post.createdAt}</p>
           </div>
-            `
+        </div>
+        <div class="image w-[30%] h-full bg-white rounded-lg"></div>
+      </div>
+        `
         ))
     })
+
+
 
 
     homeSignOutBTN && homeSignOutBTN.addEventListener('click', (e) => {
