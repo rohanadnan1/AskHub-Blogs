@@ -22,6 +22,8 @@ module.exports = {
 
 Step Four is to run the following command in terminal
 npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+there is another way of doing this go to your package.json file an in the scripts write a dev aur run script and paste this command 
+
 
 Step Five is to Link output.css to your html file 
  <!-- <!doctype html>
