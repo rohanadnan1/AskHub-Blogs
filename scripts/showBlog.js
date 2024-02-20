@@ -1,18 +1,23 @@
-const main = document.getElementById('main')
+let main;
 
+document.addEventListener('DOMContentLoaded', function () {
+    main = document.getElementById('main')
+    console.log(main, 'main')
+})
 
 export const showBlog = (post, id) => {
     if (post.id === id) {
+        console.log(post, 'post')
         main.innerHTML = `
-        <div
-class="w-2/3 h-[auto] flex justify-center items-center flex-col gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg">
-<div class="content w-[70%] flex flex-col">
-<h1 class="font-extrabold text-3xl ">${post.title}</h1>
-<p class="text-justify text-sm mt-5">${post.description}</p>
-<div class="image w-[100%] h-[250px] bg-white rounded-lg my-5"></div>
-<div class="flex justify-between items-center">
-<p><i class="ri-user-fill mr-2"></i>${post.username}</p>
-<p>${post.createdAt}</p>
+<div
+    class="w-2/3 h-[auto] flex justify-center items-center flex-col gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg">
+        <div class="content w-[70%] flex flex-col">
+            <h1 class="font-extrabold text-3xl ">${post.title}</h1>
+            <p class="text-justify text-sm mt-5">${post.description}</p>
+        <div class="image w-[100%] h-[250px] bg-white rounded-lg my-5"></div>
+        <div class="flex justify-between items-center">
+            <p><i class="ri-user-fill mr-2"></i>${post.username}</p>
+            <p>${post.createdAt}</p>
 </div>
 
 <hr class="h-px bg-gray-200 border-0 dark:bg-gray-400">

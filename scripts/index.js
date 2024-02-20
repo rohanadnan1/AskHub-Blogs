@@ -61,8 +61,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const searchBlogs = document.getElementById('search')
     let postArr = []
     let id = ''
-    const main = document.getElementById('main')
-    console.log(main, 'main')
     // if (searchBlogs.innerText !== "") {
     //     searchBlogs.addEventListener('input', (e) => {
     //         onValue(blogsInDb, (snapshot) => {
@@ -117,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             newDiv.onclick = () => {
                 const path = "view.html" + `?id=${post.id}`
                 id = parseInt(path.slice(13))
-                window.location.href = path
+                // window.location.href = path
                 onValue(blogsInDb, (snapshot) => {
                     postArr = Object.values(snapshot.val())
                     console.log(postArr)
