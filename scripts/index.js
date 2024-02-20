@@ -2,7 +2,7 @@
 import { createUser, signInWithGoogle, signInUser, signOutUser, onLoadAuth, userObj } from "./authentication.js"
 import { createBlog, blogsInDb } from "./database.js"
 import { onValue, } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js'
-
+import { showBlog } from "./showBlog.js";
 
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -60,7 +60,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     const blogContainer = document.getElementById('blog-container')
     const searchBlogs = document.getElementById('search')
     let postArr = []
-
+    let id = ''
+    const main = document.getElementById('main')
+    console.log(main, 'main')
     // if (searchBlogs.innerText !== "") {
     //     searchBlogs.addEventListener('input', (e) => {
     //         onValue(blogsInDb, (snapshot) => {
@@ -95,31 +97,42 @@ document.addEventListener('DOMContentLoaded', async function () {
     onValue(blogsInDb, (snapshot) => {
         postArr = Object.values(snapshot.val())
         console.log(postArr)
-        postArr.map((post) => (
-            blogContainer.innerHTML += `
-        <div
-        class="w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg"
-      >
-        <div class="content w-[70%] flex justify-between flex-col">
-          <h1 id="post-title" class="font-semibold text-lg">
-            ${post.title}
-          </h1>
-          <p id="post-description" class="text-justify text-sm">
-            ${post.description}
-          </p>
-          <div class="flex justify-between items-center">
-            <p id="post-owner"><i class="ri-user-fill mr-2"></i>${post.username}</p>
-            <p id="date">${post.createdAt}</p>
-          </div>
-        </div>
-        <div class="image w-[30%] h-full bg-white rounded-lg"></div>
-      </div>
-        `
-        ))
+        postArr.forEach((post, index) => {
+            // Create a new div element
+            const newDiv = document.createElement("div");
+            newDiv.className = "w-2/3 h-[200px] flex justify-center gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg";
+            newDiv.innerHTML = `
+            <div class="content w-[70%] flex justify-between flex-col">
+                <h1 id="post-title" class="font-semibold text-lg">${post.title}</h1>
+                <p id="post-description" class="text-justify text-sm">${post.description}</p>
+                <div class="flex justify-between items-center">
+                    <p id="post-owner"><i class="ri-user-fill mr-2"></i>${post.username}</p>
+                    <p id="date">${post.createdAt}</p>
+                </div>
+            </div>
+            <div class="image w-[30%] h-full bg-white rounded-lg"></div>
+            `;
+
+            // Add the onclick event to the new div
+            newDiv.onclick = () => {
+                const path = "view.html" + `?id=${post.id}`
+                id = parseInt(path.slice(13))
+                window.location.href = path
+                onValue(blogsInDb, (snapshot) => {
+                    postArr = Object.values(snapshot.val())
+                    console.log(postArr)
+                    postArr.forEach((post, index) => {
+                        showBlog(post, id)
+                    })
+                })
+            };
+
+            // Append the new div to the blogContainer
+            blogContainer.appendChild(newDiv);
+        })
     })
 
-
-
+    console.log(id, "id")
 
     homeSignOutBTN && homeSignOutBTN.addEventListener('click', (e) => {
         e.preventDefault()

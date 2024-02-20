@@ -1,75 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/output.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <title>Blog App - View</title>
-</head>
+  </head>
 
-<body class="bg-slate-50  px-24">
+  <body class="bg-slate-50 px-24">
     <nav class="mb-10">
-        <div class="flex justify-between items-center pt-2 pb-3">
-            <h1 class="font-bold text-slate-950 text-xl"><a href="/">AskHub Blogs</a></h1>
-            <!-- <input class="input input-bordered w-full max-w-xs bg-slate-200 text-black" type="text" max="20"
+      <div class="flex justify-between items-center pt-2 pb-3">
+        <h1 class="font-bold text-slate-950 text-xl">
+          <a href="/">AskHub Blogs</a>
+        </h1>
+        <!-- <input class="input input-bordered w-full max-w-xs bg-slate-200 text-black" type="text" max="20"
                 placeholder="Search Blog Or Post"> -->
-            <div>
-                <a href="index.html"><button class="btn btn-outline btn-primary">Back</button></a>
-                <a href="login.html"><button class="btn btn-outline btn-error">Logout</button></a>
-            </div>
+        <div>
+          <a href="index.html"
+            ><button class="btn btn-outline btn-primary">Back</button></a
+          >
+          <a href="login.html"
+            ><button class="btn btn-outline btn-error">Logout</button></a
+          >
         </div>
-        <hr class="h-px bg-gray-200 border-0 dark:bg-gray-400">
+      </div>
+      <hr class="h-px bg-gray-200 border-0 dark:bg-gray-400" />
     </nav>
-    <main class="flex justify-center">
-        <!-- blog -->
-        <div
-            class="w-2/3 h-[auto] flex justify-center items-center flex-col gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg">
-            <div class="content w-[70%] flex flex-col">
-                <h1 class="font-extrabold text-3xl ">React vs Javascript What's the Difference</h1>
-                <p class="text-justify text-sm mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                    consectetur
-                    error nostrum vitae
-                    quibusdam pariatur quas qui similique, rerum maxime, ipsum officia quasi, tenetur ipsa consequuntur!
-                    Ratione nisi exercitationem esse.</p>
-                <div class="image w-[100%] h-[250px] bg-white rounded-lg my-5"></div>
-                <div class="flex justify-between items-center">
-                    <p><i class="ri-user-fill mr-2"></i>Umar Haqqui</p>
-                    <p>11/2/2024</p>
-                </div>
+    <main class="flex justify-center" id="main">
+      <!-- blog -->
+      <div
+        class="w-2/3 h-[auto] flex justify-center items-center flex-col gap-8 p-5 bg-slate-200 text-gray-800 rounded-lg"
+      >
+        <div class="content w-[70%] flex flex-col">
+          <h1 class="font-extrabold text-3xl">
+            React vs Javascript What's the Difference
+          </h1>
+          <p class="text-justify text-sm mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+            consectetur error nostrum vitae quibusdam pariatur quas qui
+            similique, rerum maxime, ipsum officia quasi, tenetur ipsa
+            consequuntur! Ratione nisi exercitationem esse.
+          </p>
+          <div class="image w-[100%] h-[250px] bg-white rounded-lg my-5"></div>
+          <div class="flex justify-between items-center">
+            <p><i class="ri-user-fill mr-2"></i>Umar Haqqui</p>
+            <p>11/2/2024</p>
+          </div>
 
-                <hr class="h-px bg-gray-200 border-0 dark:bg-gray-400">
+          <hr class="h-px bg-gray-200 border-0 dark:bg-gray-400" />
 
+          <!-- comments -->
+          <div class="mt-10">
+            <h1 class="font-bold text-xl mb-2">Add your Thought</h1>
+            <textarea
+              name=""
+              id=""
+              rows="5"
+              class="w-full bg-white mb-2 rounded-md"
+            ></textarea>
+            <button class="btn btn-outline btn-primary">Submit</button>
+          </div>
 
-                <!-- comments -->
-                <div class="mt-10">
-                    <h1 class="font-bold text-xl mb-2">Add your Thought</h1>
-                    <textarea name="" id="" rows="5" class="w-full bg-white mb-2 rounded-md"></textarea>
-                    <button class="btn btn-outline btn-primary">Submit</button>
-                </div>
-
-
-                <!-- prev comments -->
-                <div class="mt-10">
-                    <h1 class="font-bold text-xl mb-2">Previous Comments</h1>
-                    <div class="flex mb-2">
-                        <div class="w-20 h-20 rounded-full bg-white"></div>
-                        <div class="flex flex-col gap-0">
-                            <p class="font-semibold text-md">Umar Haqqui</p>
-                            <p class="font-normal text-sm">1 min ago</p>
-                        </div>
-                    </div>
-                    <div class="my-2">
-                        <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <div>
-                        <i class="ri-thumb-up-fill mr-2"></i>
-                    </div>
-                </div>
+          <!-- prev comments -->
+          <div class="mt-10">
+            <h1 class="font-bold text-xl mb-2">Previous Comments</h1>
+            <div class="flex mb-2">
+              <div class="w-20 h-20 rounded-full bg-white"></div>
+              <div class="flex flex-col gap-0">
+                <p class="font-semibold text-md">Umar Haqqui</p>
+                <p class="font-normal text-sm">1 min ago</p>
+              </div>
             </div>
+            <div class="my-2">
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div>
+              <i class="ri-thumb-up-fill mr-2"></i>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
-</body>
-
+    <script src="./scripts/showBlog.js" type="module"></script>
+  </body>
 </html>
